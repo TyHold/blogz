@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1 style='text-align: center;'>New Blog Post</h1>
+<form action="/newpost" method='POST' id="newpost" style="display: block;">
+<input type="text" name="title" placeholder="Enter a title" value={{request.form['title']}}>
+<br>
+<textarea rows="15" cols="55" placeholder="Enter your blog body here" name='body' value='{{request.form['body']}}'></textarea>
+<input type="submit" value="Post!">
+</form>
+{% endblock %}

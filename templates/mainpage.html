@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 style="text-align: center">Build-a-Blog</h1>
+
+
+{%for post in posts %}
+<a href="./blog?id={{loop.index}}"><h2>{{post.title}}</h2></a>
+<br>
+<p>{{post.body}}</p>
+<hr>
+{%endfor%}
+
+
+
+
+{% endblock %}

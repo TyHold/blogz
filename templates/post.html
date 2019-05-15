@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for post in posts%}
+<h1 style="text-align:center">{{post.title}}</h1>
+
+
+<p style="font-size: 18px; text-align:center">{{post.body}}</p>
+{% endfor %}
+
+
+
+{% endblock %}
