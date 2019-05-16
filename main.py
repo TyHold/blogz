@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, render_template, session, flash
 from flask_sqlalchemy import SQLAlchemy
-from hashutils import check_pw_hash, make_pw_hash, make_salt
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -31,7 +30,7 @@ class User(db.Model):
         self.username = username
         self.password = password
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/')
 def index():
     users = User.query.all()
     return render_template('index.html', users=users)
@@ -93,7 +92,7 @@ def login():
 @app.route("/logout")
 def logout():
     del session['user']
-    return redirect("/login")
+    return redirect("/blog")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -104,10 +103,13 @@ def register():
         
         username_db_count = User.query.filter_by(username=username).count()
         if username_db_count > 0:
-            flash('yikes! "' + username + '" is already taken and password reminders are not implemented')
+            flash('yikes! "' + username + '" is already taken')
             return redirect('/register')
         if password != verify:
             flash('passwords did not match')
+            return redirect('/register')
+        if len(password) < 3 or len(username) < 3:
+            flash('invalid username or password')
             return redirect('/register')
         user = User(username=username, password=password)
         db.session.add(user)
