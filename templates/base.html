@@ -5,9 +5,11 @@
     </head>
 <body>
     
-    <a href="./blog" ><p style='display: inline; padding: 0px 20px 0px 0px'>Main Blog</p></a>
+    <a href="./" ><p style='display: inline;'>Home</p></a>
+    <a href="./blog" ><p style='display: inline;'>All Posts</p></a>
     <a href="./newpost" ><p style='display: inline;'>New Post</p></a>
-
+    <a href="./login" style="text-align:right"><p>login</p></a>
+    <a href="./logout" style="text-align:right"><p>logout</p></a>
     {% with messages = get_flashed_messages(with_categories = True) %}
         <ul>
         {% for category, message in messages %}
