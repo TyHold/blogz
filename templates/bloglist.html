@@ -6,10 +6,14 @@
 
 
 {%for post in posts %}
-<a href="./blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
-<p>{{post.body}}</p>
-<p>Written by <a href="/blog?owner_id={{post.owner_id}}">{{post.owner.username}}</a></p>
-<hr>
+<div class="container">
+    <a href="./blog?id={{post.id}}">
+        <h2>{{post.title}}</h2>
+    </a>
+    <p>{{post.body}}</p>
+    <p>Written by <a href="/blog?owner_id={{post.owner_id}}">{{post.owner.username}}</a></p>
+    <hr>
+</div>
 {%endfor%}
 
 

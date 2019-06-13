@@ -65,6 +65,7 @@ def login():
 @app.route("/logout")
 def logout():
     logout_user()
+    flash('Successfully logged out')
     return redirect('/index')
 
 @app.route('/register', methods=['GET', 'POST'])
