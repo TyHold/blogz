@@ -17,8 +17,15 @@
                 <li class="nav-item"><a href="./newpost" class="nav-link">New Post</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link">Hi, {{current_user.username}}!</a></li>
+                {% endif %}
                 <li class="nav-item"> <a href="./login" class="nav-link">login</a></li>
+                {% if current_user.is_authenticated %}
                 <li class="nav-item"><a href="./logout" class="nav-link">logout</a></li>
+                {% else %}
+                <li class="nav-item"><a href="./signup" class="nav-link">register</a></li>
+                {% endif %}
             </ul>
         </div>
 

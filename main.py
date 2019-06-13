@@ -11,6 +11,7 @@ from werkzeug.urls import url_parse
 @app.route('/index')
 def index():
     users = User.query.all()
+
     return render_template('index.html', users=users)
 
 @app.route('/blog')
