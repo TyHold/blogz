@@ -78,7 +78,8 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
-        return redirect('/login')
+        login_user(user)
+        return redirect('/newpost')
     return render_template('signup.html', title='Register', form=form)
 
 
