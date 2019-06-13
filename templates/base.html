@@ -20,11 +20,11 @@
                 {% if current_user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link">Hi, {{current_user.username}}!</a></li>
                 {% endif %}
-                <li class="nav-item"> <a href="./login" class="nav-link">login</a></li>
+                <li class="nav-item"> <a href="./login" class="nav-link">Login</a></li>
                 {% if current_user.is_authenticated %}
-                <li class="nav-item"><a href="./logout" class="nav-link">logout</a></li>
+                <li class="nav-item"><a href="./logout" class="nav-link">Logout</a></li>
                 {% else %}
-                <li class="nav-item"><a href="./signup" class="nav-link">register</a></li>
+                <li class="nav-item"><a href="./register" class="nav-link">Register</a></li>
                 {% endif %}
             </ul>
         </div>
